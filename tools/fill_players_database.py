@@ -3,11 +3,10 @@ from time import sleep
 from pymongo import MongoClient
 
 from src import StatsAPIInterface
-from src.config import MONGO_URL
 
 
 def fill_players_database():
-    client = MongoClient(MONGO_URL)
+    client = MongoClient()
 
     db = client.NHL
     players = db.Players

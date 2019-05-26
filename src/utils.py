@@ -4,10 +4,7 @@ import requests
 from pymongo import MongoClient
 
 from src import config
-from src.config import MONGO_URL
 from src.models import Player, PlayerStats
-
-import dns
 
 
 class APIInterfaceError(Exception):
@@ -29,7 +26,7 @@ class NotFoundError(APIInterfaceError):
 class StatsAPIInterface:
     def __init__(self):
         self.url = config.STATS_URL
-        self.client = MongoClient(MONGO_URL)
+        self.client = MongoClient()
         self.db = self.client.NHL
         self.players = self.db.Players
 

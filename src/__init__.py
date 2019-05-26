@@ -1,3 +1,4 @@
 from .utils import StatsAPIInterface
 
-stats_interface = StatsAPIInterface()
+
+STATS_INTERFACE = StatsAPIInterface()
