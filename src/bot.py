@@ -6,13 +6,6 @@ from src.config import TELEGRAM_TOKEN
 bot = telebot.TeleBot(TELEGRAM_TOKEN)
 
 
-@bot.message_handler(func=lambda message: message.text.startswith('/player_'), content_types=['text'])
-def get_player(message):
-    player_id = int(message.text.split('_')[1])
-    player_info = STATS_INTERFACE.get_player(player_id)
-    bot.reply_to(message, str(player_info))
-
-
 @bot.message_handler(commands=['find_player'])
 def find_player_by_name(message):
     bot.reply_to(message, 'Enter player name')
